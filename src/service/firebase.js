@@ -1,3 +1,5 @@
+import firebase from 'firebase';
+
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_GOOGLE_API_KEY,
   authDomain: process.env.REACT_APP_GOOGLE_AUTHDOMAIN,
@@ -7,6 +9,6 @@ const firebaseConfig = {
   appId: process.env.REACT_APP_GOOGLE_APPID,
   measurementId: process.env.REACT_APP_GOOGLE_MEASUREMENTID,
 };
-firebase.initializeApp(firebaseConfig);
+const firebaseApp = firebase.initializeApp(firebaseConfig);
 
-export default FirebaseApp;
+export default firebaseApp;

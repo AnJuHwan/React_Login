@@ -1,7 +1,7 @@
 import './App.css';
+import Login from './components/login';
 
-function App() {
-  return <h1>hello</h1>;
+function App({ googleSignin }) {
+  return <Login googleSignin={googleSignin} />;
 }
-
 export default App;
