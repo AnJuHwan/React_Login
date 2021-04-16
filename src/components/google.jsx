@@ -1,17 +1,21 @@
-import React from 'react';
 import { useHistory } from 'react-router';
 
-const Google = (props) => {
+const Google = ({ googleSignin }) => {
   const logOut = useHistory();
 
-  const LogOut = () => {
+  const gotoGoogleLogOut = () => {
     logOut.push('/');
+    handleLogout();
+  };
+
+  const handleLogout = () => {
+    googleSignin.logout();
   };
 
   return (
     <>
       <h1>Google Login 성공</h1>
-      <button onClick={LogOut}> LogOut</button>
+      <button onClick={gotoGoogleLogOut}> LogOut</button>
     </>
   );
 };
