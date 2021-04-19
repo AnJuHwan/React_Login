@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router';
 
-const Naver = (props) => {
+const Naver = () => {
   const logOut = useHistory();
   const gotoNaverLogOut = () => {
     logOut.push('/');

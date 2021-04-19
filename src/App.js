@@ -6,12 +6,16 @@ import Kakao from './components/kakao';
 import Login from './components/login';
 import Naver from './components/naver';
 
-function App({ googleSignin }) {
+function App({ googleSignin, naverSignin, kakaoSignin }) {
   return (
     <BrowserRouter>
       <Switch>
         <Route path='/' exact>
-          <Login googleSignin={googleSignin} />
+          <Login
+            googleSignin={googleSignin}
+            naverSignin={naverSignin}
+            kakaoSignin={kakaoSignin}
+          />
         </Route>
 
         <Route path='/google'>
@@ -19,11 +23,11 @@ function App({ googleSignin }) {
         </Route>
 
         <Route path='/kakao'>
-          <Kakao />
+          <Kakao kakaoSignin={kakaoSignin} />
         </Route>
 
         <Route path='/naver'>
-          <Naver />
+          <Naver naverSignin={naverSignin} />
         </Route>
       </Switch>
     </BrowserRouter>

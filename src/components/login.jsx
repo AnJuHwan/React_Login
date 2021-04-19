@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useHistory } from 'react-router';
 
-const Login = ({ googleSignin }) => {
+const Login = ({ googleSignin, naverSignin, kakaoSignin }) => {
   const googleLogin = useHistory();
   const KaKaoLogin = useHistory();
   const NaverLogin = useHistory();
@@ -17,12 +17,14 @@ const Login = ({ googleSignin }) => {
     googleLogin.push({
       pathname: '/kakao',
     });
+    kakaoSignin.login();
   };
 
   const gotoNaverLogin = () => {
     googleLogin.push({
       pathname: '/Naver',
     });
+    naverSignin.login();
   };
 
   useEffect(() => {
