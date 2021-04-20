@@ -4,8 +4,15 @@ class Kakao {
       redirectUri: 'http://localhost:3000/kakao',
     });
   }
+
   logout() {
-    window.Kakao.Auth.logout();
+    if (!window.Kakao.Auth.getAccessToken()) {
+      console.log('Not logged in.');
+      return;
+    }
+    window.Kakao.Auth.logout(function () {
+      console.log(window.Kakao.Auth.getAccessToken());
+    });
   }
 }
 

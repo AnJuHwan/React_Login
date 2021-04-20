@@ -11,8 +11,7 @@ const Kakao = ({ kakaoSignin }) => {
 
   const handleLogout = () => {
     //로그아웃 구현
-    //kakaoSignin.logout(Kakao.Auth.getAccessToken()); //back-end 토큰이 없어서 에러남
-    console.log('로그아웃 되었습니다');
+    kakaoSignin.logout();
   };
   return (
     <>
