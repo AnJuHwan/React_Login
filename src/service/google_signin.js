@@ -1,5 +1,6 @@
-import firebase from 'firebase';
+import firebase from 'firebase/app';
 import firebaseApp from './firebase';
+
 class GoogleSignin {
   login() {
     const provider = new firebase.auth.GoogleAuthProvider();

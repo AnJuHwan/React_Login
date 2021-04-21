@@ -1,10 +1,8 @@
-import { useEffect } from 'react';
 import { useHistory } from 'react-router';
+import styles from './login.module.css';
 
-const Login = ({ googleSignin, naverSignin, kakaoSignin }) => {
+const Login = ({ googleSignin, kakaoSignin }) => {
   const googleLogin = useHistory();
-  const KaKaoLogin = useHistory();
-  const NaverLogin = useHistory();
 
   const gotoGoogleLogin = (userId) => {
     googleLogin.push({
@@ -20,20 +18,13 @@ const Login = ({ googleSignin, naverSignin, kakaoSignin }) => {
     kakaoSignin.login();
   };
 
-  const gotoNaverLogin = () => {
-    googleLogin.push({
-      pathname: '/Naver',
-    });
-    naverSignin.login();
-  };
-
-  useEffect(() => {
-    googleSignin.onAuthChange((user) => {
-      if (user) {
-        gotoGoogleLogin(user.uid);
-      }
-    });
-  });
+  // useEffect(() => {
+  //   googleSignin.onAuthChange((user) => {
+  //     if (user) {
+  //       gotoGoogleLogin(user.uid);
+  //     }
+  //   });
+  // });
 
   const handleGoogleLogin = () => {
     googleSignin //
@@ -45,16 +36,15 @@ const Login = ({ googleSignin, naverSignin, kakaoSignin }) => {
     gotoKakaoLogin();
   };
 
-  const handleNaverLogin = () => {
-    gotoNaverLogin();
-  };
-
   return (
-    <>
-      <button onClick={handleGoogleLogin}>Google Login</button>
-      <button onClick={handleKakaoLogin}>Kakao Login</button>
-      <button onClick={handleNaverLogin}>Naver Login</button>
-    </>
+    <div className={styles.btns}>
+      <button className={styles.googlebtn} onClick={handleGoogleLogin}>
+        Google Login
+      </button>
+      <button className={styles.kakaobtn} onClick={handleKakaoLogin}>
+        Kakao Login
+      </button>
+    </div>
   );
 };
 
